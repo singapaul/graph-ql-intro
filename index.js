@@ -1,14 +1,32 @@
 const { ApolloServer, gql } = require("apollo-server");
 
+// There are two types, query and mutation.
 const typeDefs = gql`
   type Query {
     hello: String!
   }
+
+  type User {
+    id: ID!
+    username: String!
+  }
+
+  type Mutation {
+    register: User
+  }
 `;
 
+console.log("fucking bitches");
 const resolvers = {
   Query: {
-    hello: () => "hello Paul",
+    hello: () => "HELLO PAUL",
+  },
+
+  Mutation: {
+    register: () => ({
+      id: 1,
+      username: "Bobby Brown",
+    }),
   },
 };
 
